@@ -1,0 +1,34 @@
+<ActionBar class="action-bar">
+    <NavigationButton ios:visibility="collapsed" icon="res://menu" (tap)="onDrawerButtonTap()"></NavigationButton>
+    <ActionItem icon="res://navigation/menu" android:visibility="collapsed" (tap)="onDrawerButtonTap()"
+        ios.position="left">
+    </ActionItem>
+    <Label class="action-bar-title" text="Your Office"></Label>
+</ActionBar>
+
+<GridLayout rows="auto, auto" class="page-container">
+    <StackLayout *ngIf="!processing" row="0">
+        <Label class="bold" [text]="city"></Label>
+        <Label [text]="summary"></Label>
+        <Image class="weather-image" [src]="image"></Image>
+
+        <GridLayout class="weather-box" columns="1*, 1*" rows="auto">
+            <Label col="0" row="0" class="large"
+                [text]="currentTemperature"></Label>
+            <StackLayout col="1" row="0">
+                <Label class="small bold" text="details"></Label>
+                <StackLayout class="hr-light tight"></StackLayout>
+                <Label class="small" [text]="humidity"></Label>
+                <Label class="small" [text]="windSpeed"></Label>
+                <Label class="small" [text]="visibility"></Label>
+            </StackLayout>
+        </GridLayout>
+    </StackLayout>
+
+    <StackLayout *ngIf="!processing" row="1">
+        <Label [text]="day"></Label>
+        <Label [text]="time"></Label>
+    </StackLayout>
+
+    <ActivityIndicator rowSpan="2" [busy]="processing"></ActivityIndicator>
+</GridLayout>
