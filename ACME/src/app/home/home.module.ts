@@ -4,6 +4,7 @@ import { NativeScriptCommonModule } from "nativescript-angular/common";
 import { HomeRoutingModule } from "./home-routing.module";
 import { HomeComponent } from "./home.component";
 import { HomeService } from "./home.service";
+import { LoginService } from "../login/login.service";
 import { WeatherService } from "../weather/weather.service";
 
 @NgModule({
@@ -15,6 +16,7 @@ import { WeatherService } from "../weather/weather.service";
         HomeComponent
     ],
     providers: [
+        LoginService,
         HomeService,
         WeatherService
     ],
@@ -23,3 +25,4 @@ import { WeatherService } from "../weather/weather.service";
     ]
 })
 export class HomeModule { }
+

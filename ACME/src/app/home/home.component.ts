@@ -4,8 +4,10 @@ import { RadSideDrawer } from "nativescript-ui-sidedrawer";
 import * as app from "tns-core-modules/application";
 import { Accuracy } from "tns-core-modules/ui/enums";
 
+import { LoginService } from "../login/login.service";
 import { HomeService } from "./home.service";
 import { WeatherService } from "../weather/weather.service";
+import { User } from "../login/user.model";
 
 @Component({
     selector: "Home",
@@ -13,6 +15,7 @@ import { WeatherService } from "../weather/weather.service";
     styleUrls: ["./home.component.css"]
 })
 export class HomeComponent implements OnInit {
+    user: User;
     city = "";
     summary = "";
     image = "";
@@ -23,7 +26,7 @@ export class HomeComponent implements OnInit {
     
     processing = true;
 
-    constructor(private homeService: HomeService, private weatherService: WeatherService) {
+    constructor(private loginService: LoginService, private homeService: HomeService, private weatherService: WeatherService) {
     }
 
     ngOnInit(): void {
@@ -34,6 +37,9 @@ export class HomeComponent implements OnInit {
             }
         )
         */
+
+        this.user = this.loginService.getUser();
+
         geolocation.enableLocationRequest();
         geolocation.getCurrentLocation({
             desiredAccuracy: Accuracy.high

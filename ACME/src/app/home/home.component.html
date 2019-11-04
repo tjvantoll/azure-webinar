@@ -8,6 +8,11 @@
 
 <GridLayout rows="auto, auto" class="page-container">
     <StackLayout *ngIf="!processing" row="0">
+        <Label class="h1" [text]="'Welcome ' + user.name"></Label>
+        <Image height="30" borderRadius="30" [src]="user.picture"></Image>
+
+        <StackLayout class="hr-light m-y-20"></StackLayout>
+
         <Label class="bold" [text]="city"></Label>
         <Label [text]="summary"></Label>
         <Image class="weather-image" [src]="image"></Image>

@@ -1,5 +1,5 @@
-// this import should be first in order to load some required settings (like globals and reflect-metadata)
 import { platformNativeScriptDynamic } from "nativescript-angular/platform";
+require("@proplugins/nativescript-azure-mobile-apps/client").MobileServiceClient.configureClientAuthAppDelegate();
 
 import { AppModule } from "./app/app.module";
 
