@@ -6,6 +6,6 @@ export class HomeService {
     constructor(private http: HttpClient) {}
 
     hitEndpoint() {
-        return this.http.get("http://localhost:7071/api/HelloWorld");
+        
     }
 }

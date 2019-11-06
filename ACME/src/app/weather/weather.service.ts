@@ -6,11 +6,8 @@ export class WeatherService {
     constructor(private http: HttpClient) {}
 
     get(lat: number, long: number) {
-        return this.http.get("http://localhost:7071/api/GetWeather", {
-            params: {
-                lat: lat.toString(),
-                long: long.toString()
-            }
-        });
+        const url = "http://api.openweathermap.org/data/2.5/weather?APPID=870fdc992bf1fbdda05fbb6151503cc2" +
+            "&units=imperial&lat=" + lat + "&lon=" + long;
+        return this.http.get(url);
     }
 }

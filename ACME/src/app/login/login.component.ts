@@ -17,7 +17,7 @@ export class LoginComponent {
     }
 
     logInWithAD() {
-        this.loginService.login(AuthenticationProvider.AzureActiveDirectory)
+        this.loginService.login(AuthenticationProvider.AzureActiveDirectory);
     }
 
     logInWithGoogle() {

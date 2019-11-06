@@ -30,15 +30,7 @@ export class HomeComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        /*
-        this.homeService.hitEndpoint().subscribe(
-            (data) => {
-                console.log(data);
-            }
-        )
-        */
-
-        this.user = this.loginService.getUser();
+        
 
         geolocation.enableLocationRequest();
         geolocation.getCurrentLocation({
@@ -65,7 +57,6 @@ export class HomeComponent implements OnInit {
     }
 
     setImage(icon) {
-        console.log(icon);
         if (
             icon.includes("rain") ||
             icon.includes("thunderstorm") ||
